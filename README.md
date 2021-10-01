@@ -1,1 +1,1 @@
-# CEncrypter
+# CEncryptor

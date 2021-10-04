@@ -25,7 +25,7 @@ You can encrypt your seed phrase with password using this simple freeware.
 It's free to use for everyone - and always will be.
 If you want to thank me - you can do it in this "[Thank you](https://github.com/CryptoToolCommunity/CEncryptor/wiki/Thank-you "Thank you")" page
 
-#Future plans
+# Future plans
 I have plans to create multiple **on-chain metric agregator apps** ("wallet investigator", "Contract flow", "Top Holder behaviour metrics")  in the future. If this project will give me some financial support - it could make it happen faster... 
 
 ----------------------------------------

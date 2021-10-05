@@ -131,7 +131,7 @@ namespace CEncryptor
             // 
             this.lblPasswordValidation.AutoSize = true;
             this.lblPasswordValidation.ForeColor = System.Drawing.Color.Red;
-            this.lblPasswordValidation.Location = new System.Drawing.Point(129, 81);
+            this.lblPasswordValidation.Location = new System.Drawing.Point(129, 74);
             this.lblPasswordValidation.Name = "lblPasswordValidation";
             this.lblPasswordValidation.Size = new System.Drawing.Size(16, 13);
             this.lblPasswordValidation.TabIndex = 2;
@@ -264,7 +264,7 @@ namespace CEncryptor
             this.tabWords.Location = new System.Drawing.Point(4, 22);
             this.tabWords.Name = "tabWords";
             this.tabWords.Padding = new System.Windows.Forms.Padding(3);
-            this.tabWords.Size = new System.Drawing.Size(273, 378);
+            this.tabWords.Size = new System.Drawing.Size(273, 390);
             this.tabWords.TabIndex = 0;
             this.tabWords.Text = "Words";
             this.tabWords.UseVisualStyleBackColor = true;
@@ -323,7 +323,7 @@ namespace CEncryptor
             this.sHold.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sHold.Location = new System.Drawing.Point(3, 3);
             this.sHold.Name = "sHold";
-            this.sHold.Size = new System.Drawing.Size(267, 372);
+            this.sHold.Size = new System.Drawing.Size(267, 384);
             this.sHold.TabIndex = 125;
             // 
             // label26
@@ -751,7 +751,7 @@ namespace CEncryptor
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(990, 410);
+            this.tabPage2.Size = new System.Drawing.Size(1013, 422);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Decrypt";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -761,7 +761,7 @@ namespace CEncryptor
             this.txtS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtS.Location = new System.Drawing.Point(3, 3);
             this.txtS.Name = "txtS";
-            this.txtS.Size = new System.Drawing.Size(712, 404);
+            this.txtS.Size = new System.Drawing.Size(735, 416);
             this.txtS.TabIndex = 1;
             this.txtS.Text = "";
             this.txtS.TextChanged += new System.EventHandler(this.txtS_TextChanged);
@@ -773,9 +773,9 @@ namespace CEncryptor
             this.panel2.Controls.Add(this.btnL);
             this.panel2.Controls.Add(this.btnR);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(715, 3);
+            this.panel2.Location = new System.Drawing.Point(738, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(272, 404);
+            this.panel2.Size = new System.Drawing.Size(272, 416);
             this.panel2.TabIndex = 0;
             // 
             // lblx

@@ -183,31 +183,11 @@ namespace CEncryptor
                     txtS.Text = "";
                     return;
                 }
-                bool partsOk = true;
-                foreach (string p in partsLast)
-                {
-                    if (p.Trim() == "")
-                    {
-                        continue;
-                    }
-                    string dc = "";
-                    //Just check if each part can be decrypted
-                    try
-                    {
-                        dc = StringCipher.Decrypt(p, txtp.Text + "Inner");
-                    }
-                    catch
-                    {
-                        partsOk = false;
-                    }
-                }
-                if (partsOk)
-                {
-                    lblC.Text = "Ready (" + partsLast.Count + " )";
-                    lblx.Text = "...";
-                    btnL.Enabled = false;
-                    btnR.Enabled = true;
-                }
+                lblC.Text = "Ready (" + partsLast.Count + " )";
+                lblx.Text = "...";
+                btnL.Enabled = false;
+                btnR.Enabled = true;
+
             }
         }
         private void btnR_Click(object sender, EventArgs e)

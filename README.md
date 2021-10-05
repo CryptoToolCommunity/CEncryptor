@@ -4,7 +4,7 @@
 
 # What do this app do?
 You can encrypt your seed phrase with password using this simple freeware. 
-- It uses [PKCS #7](https://en.wikipedia.org/wiki/PKCS_7 "PKCS7") encryption with password (I think that it cannot be decoded without knowing password)
+- It uses [PKCS #7](https://en.wikipedia.org/wiki/PKCS_7 "PKCS7") encryption with password (I'm open mind for suggestions, if my aproach is not enaugh secure)
 - It's simple. 
 - It's open source. 
 - It's fully usable **offline** (recomended).

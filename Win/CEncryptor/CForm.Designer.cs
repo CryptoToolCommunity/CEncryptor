@@ -102,6 +102,10 @@ namespace CEncryptor
             this.lblC = new System.Windows.Forms.Label();
             this.btnL = new System.Windows.Forms.Button();
             this.btnR = new System.Windows.Forms.Button();
+            this.txtSt = new System.Windows.Forms.TextBox();
+            this.numSi = new System.Windows.Forms.NumericUpDown();
+            this.lblInfoAdditionalInfo = new System.Windows.Forms.Label();
+            this.lblInfoAddtitionalRed = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tcMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -112,10 +116,15 @@ namespace CEncryptor
             this.sHold.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numSi)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblInfoAddtitionalRed);
+            this.panel1.Controls.Add(this.lblInfoAdditionalInfo);
+            this.panel1.Controls.Add(this.numSi);
+            this.panel1.Controls.Add(this.txtSt);
             this.panel1.Controls.Add(this.lblPasswordValidation);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -820,6 +829,48 @@ namespace CEncryptor
             this.btnR.UseVisualStyleBackColor = true;
             this.btnR.Click += new System.EventHandler(this.btnR_Click);
             // 
+            // txtSt
+            // 
+            this.txtSt.Location = new System.Drawing.Point(537, 50);
+            this.txtSt.Name = "txtSt";
+            this.txtSt.Size = new System.Drawing.Size(435, 20);
+            this.txtSt.TabIndex = 3;
+            this.txtSt.TextChanged += new System.EventHandler(this.txtSt_TextChanged);
+            // 
+            // numSi
+            // 
+            this.numSi.Location = new System.Drawing.Point(493, 50);
+            this.numSi.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numSi.Name = "numSi";
+            this.numSi.Size = new System.Drawing.Size(38, 20);
+            this.numSi.TabIndex = 4;
+            this.numSi.ValueChanged += new System.EventHandler(this.numSi_ValueChanged);
+            // 
+            // lblInfoAdditionalInfo
+            // 
+            this.lblInfoAdditionalInfo.Location = new System.Drawing.Point(489, 21);
+            this.lblInfoAdditionalInfo.Name = "lblInfoAdditionalInfo";
+            this.lblInfoAdditionalInfo.Size = new System.Drawing.Size(520, 26);
+            this.lblInfoAdditionalInfo.TabIndex = 5;
+            this.lblInfoAdditionalInfo.Text = "Additional security to protect against reverse engeneering. Additional string wil" +
+    "l be added at position of internal used values - at the end this will be part of" +
+    " password - remember these values!!!";
+            // 
+            // lblInfoAddtitionalRed
+            // 
+            this.lblInfoAddtitionalRed.AutoSize = true;
+            this.lblInfoAddtitionalRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblInfoAddtitionalRed.ForeColor = System.Drawing.Color.Red;
+            this.lblInfoAddtitionalRed.Location = new System.Drawing.Point(490, 73);
+            this.lblInfoAddtitionalRed.Name = "lblInfoAddtitionalRed";
+            this.lblInfoAddtitionalRed.Size = new System.Drawing.Size(20, 17);
+            this.lblInfoAddtitionalRed.TabIndex = 6;
+            this.lblInfoAddtitionalRed.Text = "...";
+            // 
             // CForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -843,6 +894,7 @@ namespace CEncryptor
             this.sHold.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numSi)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -921,6 +973,10 @@ namespace CEncryptor
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblInfoAdditionalInfo;
+        private System.Windows.Forms.NumericUpDown numSi;
+        private System.Windows.Forms.TextBox txtSt;
+        private System.Windows.Forms.Label lblInfoAddtitionalRed;
     }
 }
 

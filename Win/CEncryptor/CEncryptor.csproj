@@ -82,8 +82,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="keys.ico" />
-    <Content Include="zVersions\CEncryptor_v_1_0_0_2.exe" />
-    <Content Include="zVersions\CEncryptor_v_1_0_0_2_debug.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="zVersions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

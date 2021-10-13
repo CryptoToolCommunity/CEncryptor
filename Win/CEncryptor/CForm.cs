@@ -12,8 +12,8 @@ namespace CEncryptor
         {
             InitializeComponent();
         }
-      
-       
+
+
 
         private void CForm_Load(object sender, EventArgs e)
         {
@@ -45,12 +45,12 @@ namespace CEncryptor
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            var allBoxes = sHold.Controls.Cast<Control>().Where(x => x is TextBox).Select(x=>x as TextBox).ToList();
+            var allBoxes = sHold.Controls.Cast<Control>().Where(x => x is TextBox).Select(x => x as TextBox).ToList();
 
             bool showP = allBoxes.First().PasswordChar == '\u0000';
 
             //Ja redzami tad slēpjam
-            foreach(var t in allBoxes)
+            foreach (var t in allBoxes)
             {
                 if (!showP)
                 {
@@ -65,7 +65,7 @@ namespace CEncryptor
             btnShow.Text = showP ? "hide values" : "show values";
         }
 
-        
+
 
         private void txtRaw_TextChanged(object sender, EventArgs e)
         {
@@ -89,8 +89,8 @@ namespace CEncryptor
                         {
                             tmp = counter + ":" + tmp;
                             mustReupdateText = true;
-                            
-                            currentPos = currentPos + counter.ToString().Length+1;
+
+                            currentPos = currentPos + counter.ToString().Length + 1;
                         }
 
                         resultLines.Add(tmp);
@@ -137,7 +137,7 @@ namespace CEncryptor
             {
                 txtRaw_TextChanged(txtRaw, e);
                 List<string> withoutNumbers = txtRaw.Lines.Where(x => x.Contains(":")).Select(x => x.Split(':')[1]).ToList();
-              
+
                 updateResult(withoutNumbers);
             }
             else
@@ -153,11 +153,11 @@ namespace CEncryptor
             foreach (var v in valuesSource)
             {
                 counter++;
-                string cs = StringCipher.Encrypt(v, txtp.Text + "Inner");
+                string cs = StringCipher.Encrypt(v, txtp.Text + "Inner", -1, (int)numSi.Value, txtSt.Text);
                 values.Add(cs);
             }
             string entireS = string.Join("@@", values.ToArray());
-            string entireC = StringCipher.Encrypt(entireS, txtp.Text + "Outer");
+            string entireC = StringCipher.Encrypt(entireS, txtp.Text + "Outer", -1, (int)numSi.Value, txtSt.Text);
             txtRes.Text = entireC;
         }
         /// <summary>
@@ -172,7 +172,7 @@ namespace CEncryptor
                 counterI = 0;
                 try
                 {
-                    string d1 = StringCipher.Decrypt(txtS.Text, txtp.Text + "Outer");
+                    string d1 = StringCipher.Decrypt(txtS.Text, txtp.Text + "Outer", (int)numSi.Value, txtSt.Text);
                     partsLast = d1.Split(new string[] { "@@" }, StringSplitOptions.RemoveEmptyEntries).ToList();
                 }
                 catch
@@ -202,7 +202,7 @@ namespace CEncryptor
             string dc = "";
             try
             {
-                dc = StringCipher.Decrypt(elementAt, txtp.Text + "Inner");
+                dc = StringCipher.Decrypt(elementAt, txtp.Text + "Inner", (int)numSi.Value, txtSt.Text);
                 lblx.Text = dc;
                 lblC.Text = counterI + "";
             }
@@ -221,10 +221,10 @@ namespace CEncryptor
             btnL.Enabled = counterI != 1;
 
             string elementAt = partsLast.ElementAt(counterI - 1);
-            
+
             try
             {
-                string dc = StringCipher.Decrypt(elementAt, txtp.Text + "Inner");
+                string dc = StringCipher.Decrypt(elementAt, txtp.Text + "Inner", (int)numSi.Value, txtSt.Text);
                 lblx.Text = dc;
                 lblC.Text = counterI + "";
             }
@@ -233,10 +233,30 @@ namespace CEncryptor
                 throw new Exception("Access denied - not supported action");
             }
         }
-
         private void tcESource_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtRes.Text = "";
+        }
+        private void UpdateAdditionalLabel()
+        {
+            lblInfoAddtitionalRed.Text = "";
+
+
+            if (txtSt.Text != "")
+                lblInfoAddtitionalRed.Text = "Remember this ↑ value combination too!!!";
+
+            if (txtSt.Text.EndsWith(" ") || txtSt.Text.StartsWith(" "))
+                lblInfoAddtitionalRed.Text += " Space at start/end!";
+        }
+
+        private void numSi_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateAdditionalLabel();
+        }
+
+        private void txtSt_TextChanged(object sender, EventArgs e)
+        {
+            UpdateAdditionalLabel();
         }
     }
 }

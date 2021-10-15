@@ -1,5 +1,5 @@
-# Latest version 1.0.0.5
-- [CEncryptor_1_0_0_5.exe](https://github.com/CryptoToolCommunity/CEncryptor/blob/main/Win/CEncryptor/zVersions/CEncryptor_1_0_0_5.exe "CEncryptor_1_0_0_5.exe") - windows version
+# Latest version 1.0.0.6
+- [CEncryptor_1_0_0_6.exe](https://github.com/CryptoToolCommunity/CEncryptor/blob/main/Win/CEncryptor/zVersions/CEncryptor_1_0_0_6.exe "CEncryptor_1_0_0_6.exe") - windows version
 - Others platforms? I didn't need... but maybe I can create if needed.
 
 # What do this app do?

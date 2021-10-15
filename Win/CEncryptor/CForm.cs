@@ -12,9 +12,6 @@ namespace CEncryptor
         {
             InitializeComponent();
         }
-
-
-
         private void CForm_Load(object sender, EventArgs e)
         {
             bool showP = (sHold.Controls.Cast<Control>().Where(x => x is TextBox).First() as TextBox).PasswordChar == '\u0000';
@@ -46,9 +43,7 @@ namespace CEncryptor
         private void btnShow_Click(object sender, EventArgs e)
         {
             var allBoxes = sHold.Controls.Cast<Control>().Where(x => x is TextBox).Select(x => x as TextBox).ToList();
-
             bool showP = allBoxes.First().PasswordChar == '\u0000';
-
             //Ja redzami tad slēpjam
             foreach (var t in allBoxes)
             {
@@ -64,12 +59,9 @@ namespace CEncryptor
             }
             btnShow.Text = showP ? "hide values" : "show values";
         }
-
-
-
         private void txtRaw_TextChanged(object sender, EventArgs e)
         {
-            string[] lines = txtRaw.Lines;
+            string[] lines = txtRaw.Text.Split('\n');
             List<string> resultLines = new List<string>();
             int counter = 0;
             bool mustReupdateText = false;
@@ -123,6 +115,7 @@ namespace CEncryptor
         private void p_TextChanged(object sender, EventArgs e)
         {
             ValidatePassword();
+            DecryptionDefaulState();
         }
         private void btnEncrypt_Click(object sender, EventArgs e)
         {
@@ -136,8 +129,7 @@ namespace CEncryptor
             else if (tcESource.SelectedTab == tabRawTxt)
             {
                 txtRaw_TextChanged(txtRaw, e);
-                List<string> withoutNumbers = txtRaw.Lines.Where(x => x.Contains(":")).Select(x => x.Split(':')[1]).ToList();
-
+                List<string> withoutNumbers = txtRaw.Text.Split('\n').Where(x => x.Contains(":")).Select(x => x.Split(':')[1]).ToList();
                 updateResult(withoutNumbers);
             }
             else
@@ -178,7 +170,7 @@ namespace CEncryptor
                 catch
                 {
                     //-txtD.Text = "Access denied";
-                    MessageBox.Show("Access denied");
+                    MessageBox.Show("Access denied", this.Text, MessageBoxButtons.OK,MessageBoxIcon.Error);
                     lblC.Text = "Access denied";
                     txtS.Text = "";
                     return;
@@ -199,16 +191,14 @@ namespace CEncryptor
             btnL.Enabled = counterI != 1;
 
             string elementAt = partsLast.ElementAt(counterI - 1);
-            string dc = "";
             try
             {
-                dc = StringCipher.Decrypt(elementAt, txtp.Text + "Inner", (int)numSi.Value, txtSt.Text);
+                string dc = StringCipher.Decrypt(elementAt, txtp.Text + "Inner", (int)numSi.Value, txtSt.Text);
                 lblx.Text = dc;
                 lblC.Text = counterI + "";
             }
             catch
             {
-
                 throw new Exception("Access denied - not supported action");
             }
         }
@@ -237,10 +227,21 @@ namespace CEncryptor
         {
             txtRes.Text = "";
         }
+        
+        private void numSi_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateAdditionalLabel();
+            DecryptionDefaulState();
+        }
+
+        private void txtSt_TextChanged(object sender, EventArgs e)
+        {
+            UpdateAdditionalLabel();
+            DecryptionDefaulState();
+        }
         private void UpdateAdditionalLabel()
         {
             lblInfoAddtitionalRed.Text = "";
-
 
             if (txtSt.Text != "")
                 lblInfoAddtitionalRed.Text = "Remember this ↑ value combination too!!!";
@@ -248,15 +249,14 @@ namespace CEncryptor
             if (txtSt.Text.EndsWith(" ") || txtSt.Text.StartsWith(" "))
                 lblInfoAddtitionalRed.Text += " Space at start/end!";
         }
-
-        private void numSi_ValueChanged(object sender, EventArgs e)
+        private void DecryptionDefaulState()
         {
-            UpdateAdditionalLabel();
-        }
-
-        private void txtSt_TextChanged(object sender, EventArgs e)
-        {
-            UpdateAdditionalLabel();
+            counterI = 0;
+            lblC.Text = "...";
+            lblx.Text = "...";
+            txtS.Text = "";
+            btnL.Enabled = false;
+            btnR.Enabled = false;
         }
     }
 }

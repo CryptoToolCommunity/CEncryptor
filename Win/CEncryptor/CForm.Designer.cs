@@ -31,6 +31,10 @@ namespace CEncryptor
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblInfoAddtitionalRed = new System.Windows.Forms.Label();
+            this.lblInfoAdditionalInfo = new System.Windows.Forms.Label();
+            this.numSi = new System.Windows.Forms.NumericUpDown();
+            this.txtSt = new System.Windows.Forms.TextBox();
             this.lblPasswordValidation = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -98,16 +102,13 @@ namespace CEncryptor
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.txtS = new System.Windows.Forms.RichTextBox();
             this.pnlDecodeRight = new System.Windows.Forms.Panel();
-            this.lblC = new System.Windows.Forms.Label();
-            this.btnL = new System.Windows.Forms.Button();
-            this.btnR = new System.Windows.Forms.Button();
-            this.txtSt = new System.Windows.Forms.TextBox();
-            this.numSi = new System.Windows.Forms.NumericUpDown();
-            this.lblInfoAdditionalInfo = new System.Windows.Forms.Label();
-            this.lblInfoAddtitionalRed = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.lblx = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblC = new System.Windows.Forms.Label();
+            this.btnR = new System.Windows.Forms.Button();
+            this.btnL = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numSi)).BeginInit();
             this.tcMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -117,7 +118,6 @@ namespace CEncryptor
             this.sHold.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.pnlDecodeRight.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numSi)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,6 +137,58 @@ namespace CEncryptor
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1021, 93);
             this.panel1.TabIndex = 0;
+            // 
+            // lblInfoAddtitionalRed
+            // 
+            this.lblInfoAddtitionalRed.AutoSize = true;
+            this.lblInfoAddtitionalRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblInfoAddtitionalRed.ForeColor = System.Drawing.Color.Red;
+            this.lblInfoAddtitionalRed.Location = new System.Drawing.Point(490, 73);
+            this.lblInfoAddtitionalRed.Name = "lblInfoAddtitionalRed";
+            this.lblInfoAddtitionalRed.Size = new System.Drawing.Size(20, 17);
+            this.lblInfoAddtitionalRed.TabIndex = 6;
+            this.lblInfoAddtitionalRed.Text = "...";
+            // 
+            // lblInfoAdditionalInfo
+            // 
+            this.lblInfoAdditionalInfo.Location = new System.Drawing.Point(489, 19);
+            this.lblInfoAdditionalInfo.Name = "lblInfoAdditionalInfo";
+            this.lblInfoAdditionalInfo.Size = new System.Drawing.Size(520, 26);
+            this.lblInfoAdditionalInfo.TabIndex = 5;
+            this.lblInfoAdditionalInfo.Text = "Additional security to protect against reverse engeneering. Additional text will " +
+    "be added at position of internal used values - at the end this will be part of p" +
+    "assword - remember these values!!!";
+            // 
+            // numSi
+            // 
+            this.numSi.Location = new System.Drawing.Point(493, 48);
+            this.numSi.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numSi.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numSi.Name = "numSi";
+            this.numSi.Size = new System.Drawing.Size(38, 20);
+            this.numSi.TabIndex = 4;
+            this.numSi.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numSi.ValueChanged += new System.EventHandler(this.numSi_ValueChanged);
+            // 
+            // txtSt
+            // 
+            this.txtSt.Location = new System.Drawing.Point(537, 48);
+            this.txtSt.Name = "txtSt";
+            this.txtSt.Size = new System.Drawing.Size(435, 20);
+            this.txtSt.TabIndex = 3;
+            this.txtSt.TextChanged += new System.EventHandler(this.txtSt_TextChanged);
             // 
             // lblPasswordValidation
             // 
@@ -787,91 +839,6 @@ namespace CEncryptor
             this.pnlDecodeRight.Size = new System.Drawing.Size(409, 416);
             this.pnlDecodeRight.TabIndex = 0;
             // 
-            // lblC
-            // 
-            this.lblC.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC.Location = new System.Drawing.Point(82, 57);
-            this.lblC.Name = "lblC";
-            this.lblC.Size = new System.Drawing.Size(228, 23);
-            this.lblC.TabIndex = 1;
-            this.lblC.Text = "...";
-            this.lblC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnL
-            // 
-            this.btnL.Enabled = false;
-            this.btnL.Location = new System.Drawing.Point(163, 26);
-            this.btnL.Name = "btnL";
-            this.btnL.Size = new System.Drawing.Size(23, 23);
-            this.btnL.TabIndex = 0;
-            this.btnL.Text = "<";
-            this.btnL.UseVisualStyleBackColor = true;
-            this.btnL.Click += new System.EventHandler(this.btnL_Click);
-            // 
-            // btnR
-            // 
-            this.btnR.Enabled = false;
-            this.btnR.Location = new System.Drawing.Point(205, 26);
-            this.btnR.Name = "btnR";
-            this.btnR.Size = new System.Drawing.Size(23, 23);
-            this.btnR.TabIndex = 0;
-            this.btnR.Text = ">";
-            this.btnR.UseVisualStyleBackColor = true;
-            this.btnR.Click += new System.EventHandler(this.btnR_Click);
-            // 
-            // txtSt
-            // 
-            this.txtSt.Location = new System.Drawing.Point(537, 48);
-            this.txtSt.Name = "txtSt";
-            this.txtSt.Size = new System.Drawing.Size(435, 20);
-            this.txtSt.TabIndex = 3;
-            this.txtSt.TextChanged += new System.EventHandler(this.txtSt_TextChanged);
-            // 
-            // numSi
-            // 
-            this.numSi.Location = new System.Drawing.Point(493, 48);
-            this.numSi.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numSi.Name = "numSi";
-            this.numSi.Size = new System.Drawing.Size(38, 20);
-            this.numSi.TabIndex = 4;
-            this.numSi.ValueChanged += new System.EventHandler(this.numSi_ValueChanged);
-            // 
-            // lblInfoAdditionalInfo
-            // 
-            this.lblInfoAdditionalInfo.Location = new System.Drawing.Point(489, 19);
-            this.lblInfoAdditionalInfo.Name = "lblInfoAdditionalInfo";
-            this.lblInfoAdditionalInfo.Size = new System.Drawing.Size(520, 26);
-            this.lblInfoAdditionalInfo.TabIndex = 5;
-            this.lblInfoAdditionalInfo.Text = "Additional security to protect against reverse engeneering. Additional text will " +
-    "be added at position of internal used values - at the end this will be part of p" +
-    "assword - remember these values!!!";
-            // 
-            // lblInfoAddtitionalRed
-            // 
-            this.lblInfoAddtitionalRed.AutoSize = true;
-            this.lblInfoAddtitionalRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblInfoAddtitionalRed.ForeColor = System.Drawing.Color.Red;
-            this.lblInfoAddtitionalRed.Location = new System.Drawing.Point(490, 73);
-            this.lblInfoAddtitionalRed.Name = "lblInfoAddtitionalRed";
-            this.lblInfoAddtitionalRed.Size = new System.Drawing.Size(20, 17);
-            this.lblInfoAddtitionalRed.TabIndex = 6;
-            this.lblInfoAddtitionalRed.Text = "...";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lblC);
-            this.panel2.Controls.Add(this.btnR);
-            this.panel2.Controls.Add(this.btnL);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(409, 106);
-            this.panel2.TabIndex = 2;
-            // 
             // lblx
             // 
             this.lblx.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -884,6 +851,49 @@ namespace CEncryptor
             this.lblx.Size = new System.Drawing.Size(409, 310);
             this.lblx.TabIndex = 3;
             this.lblx.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblC);
+            this.panel2.Controls.Add(this.btnR);
+            this.panel2.Controls.Add(this.btnL);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(409, 106);
+            this.panel2.TabIndex = 2;
+            // 
+            // lblC
+            // 
+            this.lblC.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC.Location = new System.Drawing.Point(82, 57);
+            this.lblC.Name = "lblC";
+            this.lblC.Size = new System.Drawing.Size(228, 23);
+            this.lblC.TabIndex = 1;
+            this.lblC.Text = "...";
+            this.lblC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnR
+            // 
+            this.btnR.Enabled = false;
+            this.btnR.Location = new System.Drawing.Point(205, 26);
+            this.btnR.Name = "btnR";
+            this.btnR.Size = new System.Drawing.Size(23, 23);
+            this.btnR.TabIndex = 0;
+            this.btnR.Text = ">";
+            this.btnR.UseVisualStyleBackColor = true;
+            this.btnR.Click += new System.EventHandler(this.btnR_Click);
+            // 
+            // btnL
+            // 
+            this.btnL.Enabled = false;
+            this.btnL.Location = new System.Drawing.Point(163, 26);
+            this.btnL.Name = "btnL";
+            this.btnL.Size = new System.Drawing.Size(23, 23);
+            this.btnL.TabIndex = 0;
+            this.btnL.Text = "<";
+            this.btnL.UseVisualStyleBackColor = true;
+            this.btnL.Click += new System.EventHandler(this.btnL_Click);
             // 
             // CForm
             // 
@@ -898,6 +908,7 @@ namespace CEncryptor
             this.Load += new System.EventHandler(this.CForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numSi)).EndInit();
             this.tcMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -909,7 +920,6 @@ namespace CEncryptor
             this.tabPage2.ResumeLayout(false);
             this.pnlDecodeRight.ResumeLayout(false);
             this.pnlDecodeRight.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numSi)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
